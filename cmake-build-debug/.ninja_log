@@ -1,8 +1,10 @@
 # ninja log v5
-419	529	1705938370585997568	cpp_concurrency	a750d1bb26225598
-1	412	1705938370468151258	CMakeFiles/cpp_concurrency.dir/main.cpp.o	7051e7ebc51de5fa
-2	375	1705883159665933331	CMakeFiles/cpp_concurrency.dir/conditionvariabletests.cpp.o	d464151aaf1170ad
-0	42	1706407679811002415	build.ninja	847d8160beb80ec6
-2	303	1705862940903172153	CMakeFiles/cpp_concurrency.dir/mutextests.cpp.o	d9012679f2c7a853
-3	410	1705882507908352316	CMakeFiles/cpp_concurrency.dir/readwritelocktests.cpp.o	f85cdff43006a81f
+2	371	1707360771571004801	CMakeFiles/cpp_concurrency.dir/multi_thread_test_main.cpp.o	bb6d9c16b8888252
 2	419	1705938370476792017	CMakeFiles/cpp_concurrency.dir/packagedtasktests.cpp.o	8c55ba71200cd61d
+2	85	1707360771287684519	CMakeFiles/cpp_concurrency.dir/futuretests.cpp.o	b56f4f7ff713620d
+3	410	1705882507908352316	CMakeFiles/cpp_concurrency.dir/readwritelocktests.cpp.o	f85cdff43006a81f
+2	303	1705862940903172153	CMakeFiles/cpp_concurrency.dir/mutextests.cpp.o	d9012679f2c7a853
+0	40	1707882837507666105	build.ninja	847d8160beb80ec6
+2	375	1705883159665933331	CMakeFiles/cpp_concurrency.dir/conditionvariabletests.cpp.o	d464151aaf1170ad
+2	247	1707361008685960792	CMakeFiles/cpp_concurrency.dir/main.cpp.o	7051e7ebc51de5fa
+247	269	1707361008709032812	cpp_concurrency	4d918c16a084559

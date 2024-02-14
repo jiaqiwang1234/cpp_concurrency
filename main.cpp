@@ -6,6 +6,20 @@
 #include "readwritelocktests.h"
 #include "conditionvariabletests.h"
 #include "packagedtasktests.h"
+class NewThreadInvocation {
+public:
+    void Process(int i) {
+        std::cout << "Start to process " << i << " on " << std::thread::get_id() << "\n";
+        std::this_thread::sleep_for(std::chrono::milliseconds(2000));
+        std::cout << "Process of " << i << " done\n";
+    }
+    void CreateNewThread(int i) {
+        std::cout << "Creating a new thread for " << i << " on " << this << "\n";
+        std::thread t(&NewThreadInvocation::Process, this, i);
+        t.join();
+        std::cout << i << " is joined\n";
+    }
+};
 
 void f0();
 void f(std::vector<double> v);
@@ -27,8 +41,11 @@ struct F {
 };
 
 int main() {
-    wjiaqi::cppconcurrency::PackagedTaskTests packagedTaskTests;
-    packagedTaskTests.Test();
+//    wjiaqi::cppconcurrency::PackagedTaskTests packagedTaskTests;
+//    packagedTaskTests.Test();
+    NewThreadInvocation newThreadInvocation;
+    newThreadInvocation.CreateNewThread(1);
+    newThreadInvocation.CreateNewThread(2);
     return 0;
 }
 

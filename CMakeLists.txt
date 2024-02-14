@@ -14,4 +14,6 @@ add_executable(
         packagedtasktests.cpp
         packagedtasktests.h
         futuretests.cpp
-        futuretests.h)
+        futuretests.h
+        joining_thread.h
+)
