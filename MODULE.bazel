@@ -1,3 +1,5 @@
+"Module for  the cpp concurrency examples. Created by Jiaqi Wang."
+
 module(
     name = "cpp-concurrency",
     version = "1.0",
