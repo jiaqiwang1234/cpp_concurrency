@@ -3,12 +3,12 @@
 
 template <typename T>
 class threadsafe_queue {
-private:
+ private:
   mutable std::mutex mut;
   std::queue<T> data_queue;
   std::condition_variable data_cond;
 
-public:
+ public:
   threadsafe_queue() {}
 
   void push(T new_value) {
