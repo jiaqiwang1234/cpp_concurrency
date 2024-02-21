@@ -3,7 +3,7 @@
 
 namespace cppconcurrency {
 namespace threadsafequeue {
-    // See CCIA 2nd Edition listing 6.8 6.9 and 6.10
+// See CCIA 2nd Edition listing 6.8 6.9 and 6.10
 template <typename T>
 class threadsafe_queue {
  private:
