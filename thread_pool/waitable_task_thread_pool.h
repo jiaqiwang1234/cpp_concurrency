@@ -24,12 +24,12 @@ class thread_pool {
   template <typename FunctionType>
   std::future<typename std::result_of<FunctionType()>::type> submit(
       FunctionType f) {
-        typedef typename std::result_of<FunctionType()>::type result_type;
-        std::packaged_task<result_type()> task<std::move(f)>;
-        std::future<result_type> res(task.get_future());
-        work_queue_.push(std::move(task));
-        return res;
-      }
+    typedef typename std::result_of<FunctionType()>::type result_type;
+    std::packaged_task<result_type()> task<std::move(f)>;
+    std::future<result_type> res(task.get_future());
+    work_queue_.push(std::move(task));
+    return res;
+  }
 }
 }  // namespace thread_pool
 }  // namespace cppconcurrency
