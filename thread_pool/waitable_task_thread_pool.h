@@ -46,6 +46,15 @@ private:
   thread_pool(): thread_pool(std::thread::hardware_concurrency()) {}
 
   ~thread_pool() { done_ = true; }
+
+  void run_pending_task() {
+    function_wrapper task;
+    if (work_queue_.try_pop(task)) {
+      task();
+    } else {
+      std::this_thread::yield();
+    }
+  }
 };
 }  // namespace thread_pool
 }  // namespace cppconcurrency
