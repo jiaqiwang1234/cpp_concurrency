@@ -1,5 +1,6 @@
 #include <memory>
 #include <thread>
+#include <queue>
 
 template <typename T>
 class threadsafe_queue {
@@ -9,7 +10,7 @@ class threadsafe_queue {
   std::condition_variable data_cond;
 
  public:
-  threadsafe_queue() {}
+  threadsafe_queue() = default;
 
   void push(T new_value) {
     std::lock_guard<std::mutex> lk(mut);
@@ -27,8 +28,8 @@ class threadsafe_queue {
   std::shared_ptr<T> wait_and_pop() {
     std::unique_lock<std::mutex> lk(mut);
     data_cond.wait(lk, [this] { return !data_queue.empty(); });
-    std::shared_ptr<T> res(std::make_shared<T>(std::move(data_queue.front()));)
-        data_queue.pop();
+    std::shared_ptr<T> res(std::make_shared<T>(std::move(data_queue.front())));
+    data_queue.pop();
     return res;
   }
 
@@ -47,8 +48,8 @@ class threadsafe_queue {
     if (data_queue.empty()) {
       return std::shared_ptr<T>();
     }
-    std::shared_ptr<T> res(std::make_shared<T>(std::move(data_queue.front())))
-        data_queue.pop();
+    std::shared_ptr<T> res(std::make_shared<T>(std::move(data_queue.front())));
+    data_queue.pop();
     return res;
   }
 

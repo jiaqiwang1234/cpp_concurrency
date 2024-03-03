@@ -1,16 +1,16 @@
 #include <functional>
 #include <thread>
 
-#include "/joining_thread.h"
-#include "/threadsafe_queue/waitable_fine_grained_threadsafe_queue.h"
+#include "../joining_thread.h"
+#include "../threadsafe_queue/waitable_fine_grained_threadsafe_queue.h"
 
 namespace cppconcurrency {
 namespace thread_pool {
+
 class thread_pool {
   std::atomic_bool done_;
-  threadsafequeue::threadsafe_queue<std::function<void()>> work_queue_;
-  std::vector<std::thread> threads_;
-  joiningthread::joining_thread joiner_;
+  ::cppconcurrency::threadsafequeue::threadsafe_queue<std::function<void()>> work_queue_;
+  std::vector<::cppconcurrency::joiningthread::joining_thread> threads_;
   void worker_thread() {
     while (!done_) {
       std::function<void()> task;
@@ -23,12 +23,13 @@ class thread_pool {
   }
 
  public:
-  thread_pool() : done_(false), joiner_(threads_) {
-    uint16_t const thread_count = std::thread::hardware_concurrency();
-    for (uint16_t i = 0; i < thread_count; ++i) {
-      threads_.push_back(std::thread(&thread_pool::worker_thread, this));
-    }
-  }
+   explicit thread_pool(const uint16_t thread_count): done_(false) {
+     for (uint16_t i = 0; i < thread_count; ++i) {
+       ::cppconcurrency::joiningthread::joining_thread joining_thread(&thread_pool::worker_thread, this);
+       threads_.emplace_back(std::move(joining_thread));
+     }
+   }
+  thread_pool(): thread_pool(std::thread::hardware_concurrency()) {}
 
   ~thread_pool() { done_ = true; }
 
@@ -36,6 +37,7 @@ class thread_pool {
   void submit(FunctionType f) {
     work_queue_.push(std::function<void()>(f));
   }
-}
+};
+
 }  // namespace thread_pool
 }  // namespace cppconcurrency
