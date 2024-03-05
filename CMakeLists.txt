@@ -22,4 +22,5 @@ add_executable(
         threadsafe_queue/fine_grained_locking_threadsafe_queue.h
         threadsafe_queue/simple_threadsafe_queue.h
         threadsafe_queue/waitable_fine_grained_threadsafe_queue.cpp
+        playground_main.cpp
 )

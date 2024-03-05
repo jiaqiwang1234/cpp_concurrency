@@ -91,6 +91,12 @@ build CMakeFiles/cpp_concurrency.dir/threadsafe_queue/waitable_fine_grained_thre
   OBJECT_DIR = CMakeFiles/cpp_concurrency.dir
   OBJECT_FILE_DIR = CMakeFiles/cpp_concurrency.dir/threadsafe_queue
 
+build CMakeFiles/cpp_concurrency.dir/playground_main.cpp.o: CXX_COMPILER__cpp_concurrency_unscanned_Debug /Users/wjq/cpp/cpp_concurrency/playground_main.cpp || cmake_object_order_depends_target_cpp_concurrency
+  DEP_FILE = CMakeFiles/cpp_concurrency.dir/playground_main.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk -fcolor-diagnostics
+  OBJECT_DIR = CMakeFiles/cpp_concurrency.dir
+  OBJECT_FILE_DIR = CMakeFiles/cpp_concurrency.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target cpp_concurrency
@@ -99,7 +105,7 @@ build CMakeFiles/cpp_concurrency.dir/threadsafe_queue/waitable_fine_grained_thre
 #############################################
 # Link the executable cpp_concurrency
 
-build cpp_concurrency: CXX_EXECUTABLE_LINKER__cpp_concurrency_Debug CMakeFiles/cpp_concurrency.dir/main.cpp.o CMakeFiles/cpp_concurrency.dir/mutextests.cpp.o CMakeFiles/cpp_concurrency.dir/readwritelocktests.cpp.o CMakeFiles/cpp_concurrency.dir/conditionvariabletests.cpp.o CMakeFiles/cpp_concurrency.dir/packagedtasktests.cpp.o CMakeFiles/cpp_concurrency.dir/futuretests.cpp.o CMakeFiles/cpp_concurrency.dir/threadsafe_queue/waitable_fine_grained_threadsafe_queue.cpp.o
+build cpp_concurrency: CXX_EXECUTABLE_LINKER__cpp_concurrency_Debug CMakeFiles/cpp_concurrency.dir/main.cpp.o CMakeFiles/cpp_concurrency.dir/mutextests.cpp.o CMakeFiles/cpp_concurrency.dir/readwritelocktests.cpp.o CMakeFiles/cpp_concurrency.dir/conditionvariabletests.cpp.o CMakeFiles/cpp_concurrency.dir/packagedtasktests.cpp.o CMakeFiles/cpp_concurrency.dir/futuretests.cpp.o CMakeFiles/cpp_concurrency.dir/threadsafe_queue/waitable_fine_grained_threadsafe_queue.cpp.o CMakeFiles/cpp_concurrency.dir/playground_main.cpp.o
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk
   OBJECT_DIR = CMakeFiles/cpp_concurrency.dir
   POST_BUILD = :

@@ -9,7 +9,7 @@
 class NewThreadInvocation {
 public:
     void Process(int i) {
-        std::cout << "Start to process " << i << " on " << std::thread::get_id() << "\n";
+        std::cout << "Start to process " << i << " on " << std::this_thread::get_id() << "\n";
         std::this_thread::sleep_for(std::chrono::milliseconds(2000));
         std::cout << "Process of " << i << " done\n";
     }

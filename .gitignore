@@ -1,4 +1,4 @@
 # bazel generated files
 /bazel-*
 /.vscode
-
+/cmake-build-debug
